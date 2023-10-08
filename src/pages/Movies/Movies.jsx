@@ -3,6 +3,7 @@ import { List } from 'components/List/List';
 import { searchMoviesByQuery } from 'helpers/api';
 import { useCallback, useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
+import css from './Movies.module.css';
 
 const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -35,9 +36,9 @@ const Movies = () => {
   }, [searchValue, fetchMoviesByQuery]);
 
   return (
-    <section>
+    <section className={css.section}>
       <Form setQuery={setQueryMovies} />
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <div className={css.loading}>Loading...</div>}
       {isError && <div>Try later</div>}
       {arrMovies && <List arr={arrMovies} location={location} />}
     </section>

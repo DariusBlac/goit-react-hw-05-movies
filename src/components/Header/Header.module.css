@@ -1,0 +1,13 @@
+.list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  padding: 0;
+  justify-content: center;
+}
+
+.link {
+  text-decoration: none;
+  font-weight: 700;
+  height: 30px;
+}

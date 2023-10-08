@@ -1,6 +1,7 @@
 import { searchMoviesReviews } from 'helpers/api';
 import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import css from './Reviews.module.css';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState(null);
@@ -24,7 +25,7 @@ const Reviews = () => {
       {reviews && reviews.length < 1 && (
         <div>We don't have ani reviews for this movie.</div>
       )}
-      <ul>
+      <ul className={css.list}>
         {reviews &&
           reviews.map(el => {
             return (

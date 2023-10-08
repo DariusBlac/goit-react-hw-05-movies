@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title {
+  margin: 0 auto;
+}
+
+.loader {
+  margin: 0 auto;
+  font-weight: 400;
+}

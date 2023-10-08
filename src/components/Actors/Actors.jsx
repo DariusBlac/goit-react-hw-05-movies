@@ -2,6 +2,7 @@ import { searchMoviesActors } from 'helpers/api';
 import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import plug from '../../images/plug.png';
+import css from './Actors.module.css';
 
 const Actors = () => {
   const [actors, setActors] = useState(null);
@@ -25,11 +26,11 @@ const Actors = () => {
       {actors && actors.length < 1 && (
         <div>We don't have ani cast for this movie.</div>
       )}
-      <ul>
+      <ul className={css.list}>
         {actors &&
           actors.map(el => {
             return (
-              <li key={el.id}>
+              <li key={el.id} className={css.item}>
                 <img
                   src={
                     el.profile_path
@@ -37,6 +38,7 @@ const Actors = () => {
                       : plug
                   }
                   width={100}
+                  height={150}
                   alt={el.name}
                 />
                 <h3>{el.name}</h3>

@@ -1,0 +1,10 @@
+.loading {
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

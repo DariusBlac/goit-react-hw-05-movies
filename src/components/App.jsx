@@ -3,9 +3,9 @@ import { lazy } from 'react';
 
 import { Header } from './Header/Header';
 
-const Home = lazy(() => import('../pages/Home'));
-const Movies = lazy(() => import('../pages/Movies'));
-const MoviesDetails = lazy(() => import('../pages/MoviesDetails'));
+const Home = lazy(() => import('../pages/Home/Home'));
+const Movies = lazy(() => import('../pages/Movies/Movies'));
+const MoviesDetails = lazy(() => import('../pages/MovieDetails/MoviesDetails'));
 const Reviews = lazy(() => import('../components/Reviews/Reviews'));
 const Actors = lazy(() => import('../components/Actors/Actors'));
 

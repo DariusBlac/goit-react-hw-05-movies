@@ -1,0 +1,28 @@
+.btn {
+  display: block;
+  border-radius: 12px;
+  width: 100px;
+  height: 40px;
+  font-weight: 500;
+  background-color: #bebd5c;
+  cursor: pointer;
+  margin: 8px auto 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  padding: 0;
+}
+
+.loader {
+  margin: 0 auto;
+}

@@ -8,6 +8,7 @@ import {
   useNavigate,
   useParams,
 } from 'react-router-dom';
+import css from './MovieDetails.module.css';
 
 const MoviesDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -40,26 +41,32 @@ const MoviesDetails = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleBack}>Go back</button>
+    <div className={css.container}>
+      {!isLoading && (
+        <button onClick={handleBack} className={css.btn}>
+          Go back
+        </button>
+      )}
       {movie && <MovieInfo movie={movie} />}
 
-      <div>
-        <h3>Additional information</h3>
-        <ul>
-          <li>
-            <Link to="reviews" state={location.state}>
-              Reviews
-            </Link>
-          </li>
-          <li>
-            <Link to="cast" state={location.state}>
-              Cast
-            </Link>
-          </li>
-        </ul>
-      </div>
-      {isLoading && <div>Loading...</div>}
+      {!isLoading && (
+        <div className={css.container}>
+          <h3>Additional information</h3>
+          <ul className={css.list}>
+            <li>
+              <Link to="reviews" state={location.state}>
+                Reviews
+              </Link>
+            </li>
+            <li>
+              <Link to="cast" state={location.state}>
+                Cast
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
+      {isLoading && <div className={css.loader}>Loading...</div>}
       {isError && <div>Try later</div>}
       <Suspense>
         <Outlet />
