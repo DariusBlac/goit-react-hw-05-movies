@@ -2,7 +2,7 @@ import { List } from 'components/List/List';
 import { getPopularMovies } from 'helpers/api';
 import { useCallback, useEffect, useState } from 'react';
 
-export const Home = () => {
+const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [arrMovies, setArrMovies] = useState([]);
@@ -27,7 +27,11 @@ export const Home = () => {
   return (
     <section>
       <h1>Popular Movies</h1>
+      {isLoading && <div>Loading...</div>}
+      {isError && <div>Try later</div>}
       <List arr={arrMovies} />
     </section>
   );
 };
+
+export default Home;

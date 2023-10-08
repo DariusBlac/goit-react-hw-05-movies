@@ -1,8 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+
 import { Header } from './Header/Header';
-import { Home } from 'pages/Home';
-import { Movies } from 'pages/Movies';
-import { MoviesDetails } from 'pages/MoviesDetails';
+
+const Home = lazy(() => import('../pages/Home'));
+const Movies = lazy(() => import('../pages/Movies'));
+const MoviesDetails = lazy(() => import('../pages/MoviesDetails'));
+const Reviews = lazy(() => import('../components/Reviews/Reviews'));
+const Actors = lazy(() => import('../components/Actors/Actors'));
 
 export const App = () => {
   return (
@@ -11,8 +16,8 @@ export const App = () => {
         <Route index element={<Home />} />
         <Route path="movies" element={<Movies />} />
         <Route path="movies/:movieId" element={<MoviesDetails />}>
-          {/* <Route path="cast" element={<Movies />} />
-          <Route path="reviews" element={<Movies />} /> */}
+          <Route path="cast" element={<Actors />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
         <Route path="*" element={<Home />} />
       </Route>

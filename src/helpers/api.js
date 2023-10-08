@@ -42,3 +42,33 @@ export const searchMoviesById = async id => {
 
   return data;
 };
+
+export const searchMoviesReviews = async id => {
+  const { data } = await axios(
+    `https://api.themoviedb.org/3/movie/${id}/reviews`,
+    {
+      params: { language: 'en-US', page: '1' },
+      headers: {
+        accept,
+        Authorization,
+      },
+    }
+  );
+
+  return data;
+};
+
+export const searchMoviesActors = async id => {
+  const { data } = await axios(
+    `https://api.themoviedb.org/3/movie/${id}/credits`,
+    {
+      params: { language: 'en-US' },
+      headers: {
+        accept,
+        Authorization,
+      },
+    }
+  );
+
+  return data;
+};

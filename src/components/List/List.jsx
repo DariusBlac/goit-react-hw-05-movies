@@ -1,13 +1,18 @@
 import { ListItem } from 'components/ListItem/ListItem';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import plug from '../../images/plug.png';
 
-export const List = ({ arr }) => {
+export const List = ({ arr, location }) => {
+  const { pathname } = useLocation();
+
   return (
     <ul>
       {arr.map(el => (
         <ListItem key={el.id}>
-          <Link to={`movies/${el.id}`}>
+          <Link
+            to={pathname === '/movies' ? `${el.id}` : `movies/${el.id}`}
+            state={location}
+          >
             <img
               src={
                 el.poster_path

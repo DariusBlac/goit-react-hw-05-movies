@@ -2,14 +2,16 @@ import { Form } from 'components/Form/Form';
 import { List } from 'components/List/List';
 import { searchMoviesByQuery } from 'helpers/api';
 import { useCallback, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 
-export const Movies = () => {
+const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [arrMovies, setArrMovies] = useState([]);
   const [searchParam, setSearchParam] = useSearchParams('');
   const searchValue = searchParam.get('query');
+
+  const location = useLocation();
 
   const setQueryMovies = value => {
     setSearchParam({ query: value });
@@ -35,7 +37,11 @@ export const Movies = () => {
   return (
     <section>
       <Form setQuery={setQueryMovies} />
-      {arrMovies && <List arr={arrMovies} />}
+      {isLoading && <div>Loading...</div>}
+      {isError && <div>Try later</div>}
+      {arrMovies && <List arr={arrMovies} location={location} />}
     </section>
   );
 };
+
+export default Movies;
